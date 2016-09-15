@@ -18,11 +18,9 @@ MENU = [
 
 def menu(selfurl):
 	print ("Content-type: text/html; charset=utf-8\n\n")
-	i = 0;
 	print ('<pre>------------------------------');
-	for item in MENU:
+	for i, item in enumerate(MENU):
 		print('<a href="{0}?student={1}">{2}</a>'.format(selfurl, i+1, item[0]))
-		i += 1
 	print ("------------------------------</pre>");
 
 
