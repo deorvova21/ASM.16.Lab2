@@ -18,15 +18,14 @@ def edit(group, q, selfurl):
     if len(group) < 1:
         print("List empty\n")
     else:
-        form = cgi.FieldStorage()
-        studnum = form.getfirst("num", None)
-        name = form.getfirst("name", group.getName(int(studnum)-1))
-        age = form.getfirst("age", group.getAge(int(studnum)-1))
-        grants = form.getfirst("grants", group.getGrants(int(studnum)-1))
-        address = form.getfirst("address", group.getAddress(int(studnum)-1))
+        studnum = q.getfirst("num", None)
+        name = q.getfirst("name", group.getName(int(studnum)-1))
+        age = q.getfirst("age", group.getAge(int(studnum)-1))
+        grants = q.getfirst("grants", group.getGrants(int(studnum)-1))
+        address = q.getfirst("address", group.getAddress(int(studnum)-1))
         if group.checkClass(int(studnum)-1) == "Monitor":
-            phone = form.getfirst("phone", group.getPhone(int(studnum)-1))
-            email = form.getfirst("email", group.getEmail(int(studnum)-1))
+            phone = q.getfirst("phone", group.getPhone(int(studnum)-1))
+            email = q.getfirst("email", group.getEmail(int(studnum)-1))
         
         if studnum is not None:
             print ("""<form action=""" + '"' + selfurl + '"' + """>
@@ -42,13 +41,12 @@ def edit(group, q, selfurl):
                     <input placeholder="Эл. почта" value = """ + '"' + email + '"' + """ type="text" name="email">""")
             print("""<input value='Редактировать' type="submit">
             </form>""")
-            form = cgi.FieldStorage()
-            name = form.getfirst("name", None)
+            name = q.getfirst("name", None)
             if name is not None:
-                age = form.getfirst("age", None)
-                grants = form.getfirst("grants", None)
-                address = form.getfirst("address", None)
-                phone = form.getfirst("phone", None)
-                email = form.getfirst("email", None)
+                age = q.getfirst("age", None)
+                grants = q.getfirst("grants", None)
+                address = q.getfirst("address", None)
+                phone = q.getfirst("phone", None)
+                email = q.getfirst("email", None)
                 exec_edit(studnum,group, q, selfurl, name, age ,grants ,address, phone, email)   
     return

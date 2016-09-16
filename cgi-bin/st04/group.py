@@ -49,11 +49,22 @@ class Group:
         count = 1
         if self._student:
             for e in self._student:
-                tmp_list.append(str(count) + ". " + str(e) + """ <a href="{0}?student={1}&choice=2&num=""".format(self.selfurl, self.q['student'].value) + str(count) +"""">Редактировать</a> | 
-                    <a href="{0}?student={1}&choice=3&num=""".format(self.selfurl, self.q['student'].value) + str(count) +"""">Удалить</a>""")
-                
+                tmp_list.append( "<tr>" + str(e) + """<th> <a href="{0}?student={1}&choice=2&num=""".format(self.selfurl, self.q['student'].value) + str(count) +"""">Редактировать</a> | 
+                    <a href="{0}?student={1}&choice=3&num=""".format(self.selfurl, self.q['student'].value) + str(count) +"""">Удалить</a></th></tr>""")
                 count +=  1
             tmp_string = "<br>".join(tmp_list)
+            tmp_string = """<table border="1">
+   <caption>Картотека</caption>
+   <tr>
+    <th>Тип</th>
+    <th>Имя</th>
+    <th>Возраст</th>
+    <th>Стипендия</th>
+    <th>Адрес</th>
+    <th>Телефон</th>
+    <th>Эл. почта</th>
+    <th>Действие</th>
+   </tr>""" + tmp_string + "</table>"
             
         else:
             tmp_string="Empty list\n"

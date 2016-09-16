@@ -11,15 +11,13 @@ import cgi
 def main(q, selfurl): 
     group = Group(q, selfurl)  
     print ("Content-type: text/html; charset=utf-8\n\n")
-    
-    form = cgi.FieldStorage()
     try:
         menu_actions['6'](group) #загрузка 
     except (FileNotFoundError):
         group.add(Student(None,None,None,None))
         menu_actions['5'](group)
         menu_actions['6'](group)    
-    choice = form.getfirst("choice", None)
+    choice = q.getfirst("choice", None)
     if choice != str(1) and choice != str(2) and choice != str(3):
         menu_actions['4'](group) #вывод
         print ('<br><a href="{0}">Назад</a> | <a href="{0}?student={1}&choice=1">Добавить</a>'.format(selfurl, q['student'].value)) 

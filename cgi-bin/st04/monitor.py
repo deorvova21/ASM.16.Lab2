@@ -13,4 +13,4 @@ class Monitor(Student):
     def getEmail(self):
         return self._email
     def __str__(self):
-        return 'monitor: ' + self.getName() + ' age: ' + str(self.getAge()) + ' grants: ' + str(self.getGrants()) + ' address: ' + self.getAddress() + ' phone: ' + self.getPhone() + ' email: ' + self.getEmail()
+        return '<th>monitor</th><th>' + self.getName() + '</th><th>' + str(self.getAge()) + '</th><th>' + str(self.getGrants()) + '</th><th>' + str(self.getAddress()) + '</th><th>' + str(self.getPhone()) + '</th><th>' + str(self.getEmail())+'</th>'

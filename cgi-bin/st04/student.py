@@ -21,4 +21,4 @@ class Student:
     def getAddress(self):
         return self._address
     def __str__(self):
-        return 'student: ' + str(self.getName()) + ' age: ' + str(self.getAge()) + ' grants: ' + str(self.getGrants()) + ' address: ' + str(self.getAddress())
+        return '<th>student</th><th>' + str(self.getName()) + '</th><th>' + str(self.getAge()) + '</th><th>' + str(self.getGrants()) + '</th><th>' + str(self.getAddress() + '</th><th></th><th></th>')

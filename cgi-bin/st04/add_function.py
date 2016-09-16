@@ -11,8 +11,7 @@ def exec_add(typeadd,group, q, selfurl):
     return
 
 def add(group, q, selfurl):
-    form = cgi.FieldStorage()
-    typeadd = form.getfirst("typeadd", None)
+    typeadd = q.getfirst("typeadd", None)
     if typeadd != str(1) and typeadd != str(2):
         print ('<br><a href="{0}?student={1}&choice=1&typeadd=1">Добавить студента</a> | <a href="{0}?student={1}&choice=1&typeadd=2">Добавить старосту</a>'.format(selfurl, q['student'].value))
     if typeadd is not None:
@@ -30,12 +29,11 @@ def student(group, q, selfurl):
         <input placeholder="Адрес" type="text" name="address">
         <input value='Добавить' type="submit">
     </form>""")
-    form = cgi.FieldStorage()
-    name = form.getfirst("name", None)
+    name = q.getfirst("name", None)
     if name is not None:
-        age = form.getfirst("age", None)
-        grants = form.getfirst("grants", None)
-        address = form.getfirst("address", None)
+        age = q.getfirst("age", None)
+        grants = q.getfirst("grants", None)
+        address = q.getfirst("address", None)
         student = Student(name, age, grants, address)
         group.load()
         group.add(student)
@@ -56,14 +54,13 @@ def monitor(group, q, selfurl):
         <input placeholder="Эл. почта" type="text" name="email">
         <input value='Добавить' type="submit">
     </form>""")
-    form = cgi.FieldStorage()
-    name = form.getfirst("name", None)
+    name = q.getfirst("name", None)
     if name is not None:
-        age = form.getfirst("age", None)
-        grants = form.getfirst("grants", None)
-        address = form.getfirst("address", None)
-        phone = form.getfirst("phone", None)
-        email = form.getfirst("email", None)
+        age = q.getfirst("age", None)
+        grants = q.getfirst("grants", None)
+        address = q.getfirst("address", None)
+        phone = q.getfirst("phone", None)
+        email = q.getfirst("email", None)
         student = Monitor(name, age, grants, address, phone, email)
         group.load()
         group.add(student)

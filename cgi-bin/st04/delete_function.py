@@ -16,8 +16,7 @@ def delete(group, q, selfurl):
     if len(group) < 1:
         print("List empty\n")
     else:
-        form = cgi.FieldStorage()
-        studnum = form.getfirst("num", None)
+        studnum = q.getfirst("num", None)
         if studnum is not None:
             exec_delete(studnum,group, q, selfurl)
     return
