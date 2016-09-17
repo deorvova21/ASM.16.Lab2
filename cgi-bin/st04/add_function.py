@@ -19,7 +19,7 @@ def add(group, q, selfurl):
     return
 
 def student(group, q, selfurl):
-    print ("""<form action=""" + '"' + selfurl + '"' + """>
+    print ("""<form action=""" + '"' + selfurl + '"' + ">" + """
         <input value =""" + '"' + q['student'].value + '"' + """type="text" name="student" style="display: none;">
         <input value = 1 type="text" name="choice" style="display: none;">
         <input value = 1 type="text" name="typeadd" style="display: none;">
@@ -29,16 +29,12 @@ def student(group, q, selfurl):
         <input placeholder="Адрес" type="text" name="address">
         <input value='Добавить' type="submit">
     </form>""")
-    name = q.getfirst("name", None)
-    if name is not None:
-        age = q.getfirst("age", None)
-        grants = q.getfirst("grants", None)
-        address = q.getfirst("address", None)
-        student = Student(name, age, grants, address)
+    student = Student(None,None,None,None).getForm(q)
+    if student.getName() is not None:
         group.load()
         group.add(student)
         group.save()
-        print ('<br><a href="{0}?student={1}">Назад</a>'.format(selfurl, q['student'].value))
+    print ('<br><a href="{0}?student={1}">Назад</a>'.format(selfurl, q['student'].value))
     return
 
 def monitor(group, q, selfurl):
@@ -54,18 +50,12 @@ def monitor(group, q, selfurl):
         <input placeholder="Эл. почта" type="text" name="email">
         <input value='Добавить' type="submit">
     </form>""")
-    name = q.getfirst("name", None)
-    if name is not None:
-        age = q.getfirst("age", None)
-        grants = q.getfirst("grants", None)
-        address = q.getfirst("address", None)
-        phone = q.getfirst("phone", None)
-        email = q.getfirst("email", None)
-        student = Monitor(name, age, grants, address, phone, email)
+    monitor = Monitor(None,None,None,None,None,None).getForm(q)
+    if monitor.getName() is not None:
         group.load()
-        group.add(student)
+        group.add(monitor)
         group.save()
-        print ('<br><a href="{0}?student={1}">Назад</a>'.format(selfurl, q['student'].value))
+    print ('<br><a href="{0}?student={1}">Назад</a>'.format(selfurl, q['student'].value))
     return
 
 add_actions = {

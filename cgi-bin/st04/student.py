@@ -20,5 +20,11 @@ class Student:
         return self._grants
     def getAddress(self):
         return self._address
+    def getForm(self, q):
+        self.setName(q.getfirst("name", None))
+        self.setAge(q.getfirst("age", None))
+        self.setGrants(q.getfirst("grants", None))
+        self.setAddress(q.getfirst("address", None))
+        return self
     def __str__(self):
-        return '<th>student</th><th>' + str(self.getName()) + '</th><th>' + str(self.getAge()) + '</th><th>' + str(self.getGrants()) + '</th><th>' + str(self.getAddress() + '</th><th></th><th></th>')
+        return '<th>student</th><th>' + str(self.getName()) + '</th><th>' + str(self.getAge()) + '</th><th>' + str(self.getGrants()) + '</th><th>' + str(self.getAddress()) + '</th><th></th><th></th>'

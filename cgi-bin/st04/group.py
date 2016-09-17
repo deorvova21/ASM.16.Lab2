@@ -1,4 +1,5 @@
 ﻿from .monitor import *
+from .student import *
 import pickle
 class Group:
     def __init__(self, q, selfurl):
@@ -7,14 +8,8 @@ class Group:
         self._student = []
     def add(self, x):
         self._student.append(x)
-    def edit(self, num, name, age, grants, address, phone, email):
-        self._student[num].setName(name)
-        self._student[num].setAge(age)
-        self._student[num].setGrants(grants)
-        self._student[num].setAddress(address)
-        if type(self._student[num]) is Monitor:
-            self._student[num].setPhone(phone)
-            self._student[num].setEmail(email)
+    def edit(self, num, student):
+        self._student[num] = student
     def delete(self,num):
         self._student.pop(num)
     def clear(self):
@@ -52,7 +47,7 @@ class Group:
                 tmp_list.append( "<tr>" + str(e) + """<th> <a href="{0}?student={1}&choice=2&num=""".format(self.selfurl, self.q['student'].value) + str(count) +"""">Редактировать</a> | 
                     <a href="{0}?student={1}&choice=3&num=""".format(self.selfurl, self.q['student'].value) + str(count) +"""">Удалить</a></th></tr>""")
                 count +=  1
-            tmp_string = "<br>".join(tmp_list)
+            tmp_string = "".join(tmp_list)
             tmp_string = """<table border="1">
    <caption>Картотека</caption>
    <tr>
