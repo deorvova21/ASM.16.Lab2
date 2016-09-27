@@ -6,6 +6,7 @@ sys.stdin = codecs.getreader("utf-8")(sys.stdin.detach())
 
 import st00.main
 import st04.main
+import st05.main
 import st28.main
 #	добавить импорт своего модуля по шаблону 
 #	import st<номер по журналу>.main
