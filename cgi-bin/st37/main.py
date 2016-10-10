@@ -84,7 +84,8 @@ a:active{
 
 #back{
     float: left;
-}"""
+}
+"""
 
     headString = """ <!DOCTYPE html>
 <html>

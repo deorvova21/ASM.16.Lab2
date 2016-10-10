@@ -37,15 +37,15 @@ class Group:
         <input value = {} type="text" name="ttype" style="display: none;">
         <input placeholder="input kind" type="text" name="Kind">
         <input placeholder="input age" type="text" name="Age">
-        <input placeholder="input weight" type="text" name="Weight">""".format(ttype)
+        <input  placeholder="input weight" type="text" name="Weight">""".format(ttype)
         if ttype == '0':
             elem = Feline()
-            formString += """<input value="Add the feline" type="submit">"""
+            formString += """<input  value="Add the feline" type="submit">"""
         else:
             elem = Cat()
-            formString += """ <input placeholder="input name" type="text" name="Name">
-        <input placeholder="input owner's name" type="text" name="Owner">
-        <input value="Add the cat" type="submit">"""
+            formString += """ <input  placeholder="input name" type="text" name="Name">
+        <input  placeholder="input owner's name" type="text" name="Owner">
+        <input  value="Add the cat" type="submit">"""
             
         formString += """ </form>"""
         print(formString)
@@ -72,7 +72,7 @@ class Group:
                 <input value = edit type="text" name="action" style="display: none;">
                 <input value = """ + '"' + index + '"' + """ type="text" name="index" style="display: none;">
                 {}
-                <input value='Edit' type="submit">
+                <input  value='Edit' type="submit">
             </form>""".format(elem.getInputs(q))
                 print(formString)
                 elem.getFromForm(q)
@@ -125,7 +125,11 @@ class Group:
             print(tableString)
         else:
             print('<h3> The list is empty!<br>Please, add any felines!</h3>')
-            print(""" <h3 id="back"><a href="{0}?student={1}"><-Back</a></h3>""".format(selfurl, q['student'].value))
+            print("""<h1>The Cat Family</h1>
+        <h3>
+        <a id="back" href="{0}"><-Back</a>
+        <a href="{0}?student={1}&action=add">Add new feline or cat</a>
+        </h3>""".format(selfurl, q['student'].value))
 
     def fclear(self):
         self.__container.clear()
