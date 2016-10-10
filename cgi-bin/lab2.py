@@ -34,10 +34,8 @@ def menu(selfurl):
 
 def main():
 	q = cgi.FieldStorage()
-	st = 0
 	selfurl = os.environ['SCRIPT_NAME']
-	if 'student' in q:
-		st = 0+int(q['student'].value)
+	st = int(q.getvalue('student', 0))
 	if st > 0 and st <= len(MENU):
 		MENU[st-1][1](q, selfurl)
 	else:
