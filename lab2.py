@@ -1,7 +1,7 @@
 import os, sys, threading, time
 from http.server import HTTPServer, CGIHTTPRequestHandler
 
-port = 8080
+port = 80
 webdir = '.'
 if len(sys.argv) > 1:
 	webdir = sys.argv[1]
