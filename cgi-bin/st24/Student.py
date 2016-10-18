@@ -42,14 +42,14 @@ class Student:
 <a href="?student={0}">Назад</a>
         """.format(q['student'].value,q['i'].value, self.name, self.group,self.mark))       
 
-    def show(self, i):
+    def show(self, q, i):
         print("""
 Имя: {2}<br>
 Группа: {3}<br>
 Средний балл: {4}<br>
 <a href="?student={0}&type=change&i={1}">Редактировать</a> | <a href="?student={0}&type=dell&i={1}">Удалить</a><br>
 <hr>
-""".format(self.q['student'].value,i, self.name,self.group,self.mark))
+""".format(q['student'].value,i, self.name,self.group,self.mark))
   
 
 

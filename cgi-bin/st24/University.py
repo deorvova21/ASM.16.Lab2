@@ -68,7 +68,7 @@ class University:
         print('Всего : ---'+str(len(self.spisok))+' учащихся\n<br><hr>')
         i=0
         for item in self.spisok:
-            item.show(i)
+            item.show(self.q,i)
             i+=1
         print("""
 <a href="?student={0}&type=add_sta">Добавить старосту</a> | <a href="?student={0}&type=add_stu">Добавить студента</a>
