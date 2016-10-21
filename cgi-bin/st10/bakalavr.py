@@ -13,7 +13,7 @@ class bakalavr:
                 print('<Caption><H3>Добавление бакалавра</H3></Caption>')
                 print('<form> <input type=hidden name=student value={0}>'.format(self.q['student'].value))
                 print('<input type=hidden name=action value="badd">')
-                print('<table border="0"><tr><td>ФИО студента:</td><td><input type=text name=fio value="{0}"></td></tr>'.format(self.fio))
+                print('<table border="0"><tr><td>ФИО студента:</td><td><input type=text name=fio value="{0}"></td><td><i>*Обязательно</i></td></tr>'.format(self.fio))
                 print('<tr><td>Факультет:</td><td><input type=text name=fac value="{0}"></td></tr>'.format(self.fac))
                 print('<tr><td>Курс:</td><td><input type=text name=cur value="{0}"></td></tr>'.format(self.cur))
                 print('<tr><td>Группа:</td><td><input type=text name=gr value="{0}"></td></tr></table>'.format(self.gr))
@@ -30,17 +30,22 @@ class bakalavr:
                 print('<th colspan="3">Нет (бакалавр)</th>')
 
         def save_values(self, q):
-                self.fio = q['fio'].value
-                self.fac = q['fac'].value
-                self.cur = q['cur'].value
-                self.gr  = q['gr'].value
+                if 'fio' in self.q:
+                        self.fio = q['fio'].value
+                        if 'fac' in self.q: self.fac = q['fac'].value
+                        else: self.fac = ""
+                        if 'cur' in self.q: self.cur = q['cur'].value 
+                        else: self.cur = ""
+                        if 'gr' in self.q: self.gr  = q['gr'].value
+                        else: self.gr  = ""
+
 
         def edit(self, q):
                 print('<Caption><H3>Изменение бакалавра</H3></Caption>')
                 print('<form> <input type=hidden name=student value={0}>'.format(self.q['student'].value))
                 print('<input type=hidden name=action value="edit">')
                 print('<input type=hidden name=id value={0}>'.format(q['id'].value))
-                print('<table border="0"><tr><td>ФИО студента:</td><td><input type=text name=fio value="{0}"></td></tr>'.format(self.fio))
+                print('<table border="0"><tr><td>ФИО студента:</td><td><input type=text name=fio value="{0}"></td><td><i>*Обязательно</i></td></tr>'.format(self.fio))
                 print('<tr><td>Факультет:</td><td><input type=text name=fac value="{0}"></td></tr>'.format(self.fac))
                 print('<tr><td>Курс:</td><td><input type=text name=cur value="{0}"></td></tr>'.format(self.cur))
                 print('<tr><td>Группа:</td><td><input type=text name=gr value="{0}"></td></tr></table>'.format(self.gr))

@@ -42,8 +42,9 @@ class group:
         self.list.append(bak)
         bak.new()
         bak.save_values(self.q)
-        self.save()
-        print('<br><th>Бакалавр добавлен</th>')
+        if bak.fio != "":
+            self.save()
+            print('<br><th>Бакалавр добавлен</th>')
 
     def madd(self):
         self.load()
@@ -51,8 +52,9 @@ class group:
         self.list.append(mag)
         mag.new()
         mag.save_values(self.q)
-        self.save()
-        print('<br><th>Магистр добавлен</th>')
+        if mag.fio != "":
+            self.save()
+            print('<br><th>Магистр добавлен</th>')
 
     def save(self):
         pickle.dump(self.list, open('cgi-bin/st10/students.dat', 'wb'))
