@@ -7,6 +7,7 @@ sys.stdin = codecs.getreader("utf-8")(sys.stdin.detach())
 import st00.main
 import st04.main
 import st05.main
+import st07.main
 import st13.main
 import st18.main
 import st22.main
@@ -21,6 +22,7 @@ MENU = [
         ["[00] Образец", st00.main.main],
         ["[04] Багаутдинов", st04.main.main],
 	["[05] Беккер", st05.main.main],
+        ["[07] Бурлакова", st07.main.main],
         ["[13] Димитриев", st13.main.main],
 	["[18] Колесникова Анастасия", st18.main.main],
         ["[22] Короленко", st22.main.main],
