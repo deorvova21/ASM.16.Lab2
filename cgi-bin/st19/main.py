@@ -2,7 +2,6 @@ from .group import group
 import cgi
 
 def main(q, selfurl):
-        form = cgi.FieldStorage()
         company=group(q,selfurl)
         MENU = {
                 'show_list': company.show_list,
