@@ -20,7 +20,8 @@ class group:
                 self.list.append(chief)
                 chief.add()
                 chief.save_form(self.q)
-                self.save()   
+                if chief.name != " ":
+                        self.save()   
 
 	def fi(self):
 		print("st00.group.f()<br>")
@@ -49,6 +50,8 @@ class group:
                 self.list.append(empl)
                 empl.add()
                 empl.save_form(self.q)
+                if empl.name != " ":
+                        self.save()
 
 	def show_list(self):
                 self.load()

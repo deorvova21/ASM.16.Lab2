@@ -3,9 +3,9 @@ import cgi
 class Emploee:
         def __init__(self, q):
                 self.q = q
-                self.name = ''
-                self.dep = ''
-                self.phone = ''
+                self.name = " "
+                self.dep = " "
+                self.phone = " "
 
         def add(self): 
                 print('<Caption><H3>Add Emploee</H3></Caption>')
@@ -18,7 +18,9 @@ class Emploee:
                 print('<a href="?student={0}">Back</a>'.format(self.q['student'].value))
                 
         def save_form(self, q):
-                self.name = q.getvalue('name')
+                if 'name' in self.q:
+                        self.name = q.getvalue('name')
+                else: self.name=" "
                 self.dep = q.getvalue('dep')
                 self.phone = q.getvalue('phone')
 
