@@ -16,6 +16,7 @@ import st13.main
 import st18.main
 import st22.main
 import st24.main
+import st27.main
 import st28.main
 import st37.main
 import st40.main
@@ -33,6 +34,7 @@ MENU = [
 	["[18] Колесникова Анастасия", st18.main.main],
         ["[22] Короленко", st22.main.main],
         ["[24] Кутикова", st24.main.main],
+        ["[27] Можайкин", st27.main.main],
         ["[28] Мурадян", st28.main.main],
         ["[37] Трифонов", st37.main.main],
         ["[40] Ягелло", st40.main.main]
