@@ -11,4 +11,5 @@ class group:
 		print("st00.group.f()<br>")
 		for p in self.q.list:
 			print("{0}: {1}<br>".format(p.name, p.value))
-		print ('<br><a href="{0}">Назад</a> | <a href="{0}?student={1}">Повторить</a>'.format(self.selfurl, self.q['student'].value));
+		print ('<br><a href="{0}">nazad</a> | <a href="{0}?student={1}">Povtorit</a>'.
+			   format(self.selfurl, self.q['student'].value));
