@@ -1,6 +1,8 @@
 from .view import view
 from .models import USERLIST
+
 class Controller:
+
     def __init__(self, q, selfurl):
         self.q = q
         self.selfurl=selfurl
@@ -27,6 +29,7 @@ class Controller:
 
         if 'del_item' in self.q and 'userlist' in self.q:
             self.del_user()
+            self.userlist()
 
         if self.q.__len__() == 1:
             self.index()
@@ -45,10 +48,8 @@ class Controller:
                 'edit_Name' in self.q and \
                 'index' in self.q and \
                 'userlist' in self.q:
-
                 userlist = USERLIST()
                 userlist.load(self.q['userlist'].value)
-
                 userlist.edit(userlist=self.q['userlist'].value,
                               index=self.q['index'].value,
                               username=self.q['edit_Username'].value,
@@ -56,8 +57,6 @@ class Controller:
                               surname=self.q['edit_Surname'].value,
                               name=self.q['edit_Name'].value,
                               )
-
-                #userlist.save(self.q['userlist'].value)
                 self.userlist()
 
             if 'userlist' in self.q and self.q.__len__() == 2:

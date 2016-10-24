@@ -1,5 +1,3 @@
-from .group import group
-from .view import view
 from .controller import Controller
 
 def main(q, selfurl):
@@ -8,4 +6,4 @@ def main(q, selfurl):
 
 	controller.main()
 
-	#group(q, selfurl).f()
+

@@ -5,12 +5,12 @@ import os
 import pickle
 
 class DataUser (object):
+
     __slots__ = ('surname', 'name', 'group')
 
     def __init__(self,form_surname,form_name):
         self.surname=form_surname
         self.name=form_name
-        #self.group = group TODO
 
     def __str__(self):
         print("surname: {}\nname: {}\n".
@@ -45,14 +45,11 @@ class USER(DataUser):
                     False
                 else:
                     self.create = False
-                    #print("create=False:error_len")
             except AttributeError:
                 self.create = False
-                #print("create=False:error_atribute")                           #TODO
             else:
                 if (self.create == True):
                     pass
-                    #print("create=True\n")
         else:
             self.id,self.username,self.hash,self.date,self.date_edit,self.create,self.surname,self.name= \
                 list.get("id"), \
@@ -133,12 +130,9 @@ class USERLIST():
 
     def load(self,file):
         path=os.path.normpath("./cgi-bin/st35/data/"+str(file+'.pkl'))
-        #print(path)
         if os.path.exists(path):
             with open(path,'rb')as myfile:          #TODO st35/
-                #print("load OK\n")
                 self.table=pickle.load(myfile)
-        #else:print("FileNotFoundError")
 
 
     def save(self,file):
@@ -149,40 +143,17 @@ class USERLIST():
 
 
     def edit(self,userlist,index,username,password,surname,name):
-
         newuser = USER(list=self.table[int(index)])
-
         newuser.edit(username=username,password=password,surname=surname,name=name)
-
         self.table[int(index)] = newuser()
-
         self.save(userlist)
 
 
     def __delitem__(self,index):
         if 0<=int(index)<=int(self.table.__len__())-1:
             self.table.pop(int(index))
-            #self.save()
         else:
             print("no index")
-
-
-
-
-        # def __getattr__(self, item):
-        # pass
-
-         # def __call__(self, *args, **kwargs):
-        # print ("call")
-
-        # def __len__(self):
-        # return len(self.table)
-
-        # def __getitem__(self, item):
-        # pass
-
-        # def __setitem__(self, key, value):
-        # pass
 
 class MENU():
     "MENU:\n"
