@@ -73,13 +73,17 @@ class group:
     def edit(self):
         self.load()
         self.list[int(self.q['id'].value)].edit(self.q)
-        self.list[int(self.q['id'].value)].save_values(self.q)
         self.save()
-        print('<br><th>Студент изменен</th>')
 
     def clear(self):
         self.load()
         self.list.clear()
+        self.save()
+        self.show_all()
+
+    def end_edit(self):
+        self.load()
+        self.list[int(self.q['id'].value)].save_values(self.q)
         self.save()
         self.show_all()
               

@@ -37,24 +37,24 @@ class magistr(bakalavr):
 
         def save_values(self, q):
                 if 'fio' in self.q:
-                        self.fio = q['fio'].value
-                        if 'fac' in self.q: self.fac = q['fac'].value
+                        self.fio = q.getvalue('fio')
+                        if 'fac' in self.q: self.fac = q.getvalue('fac')
                         else: self.fac = ""
-                        if 'cur' in self.q: self.cur = q['cur'].value 
+                        if 'cur' in self.q: self.cur = q.getvalue('cur')
                         else: self.cur = ""
-                        if 'gr' in self.q: self.gr  = q['gr'].value
+                        if 'gr' in self.q: self.gr  = q.getvalue('gr')
                         else: self.gr  = ""
-                        if 'un' in self.q: self.un = q['un'].value
+                        if 'un' in self.q: self.un = q.getvalue('un')
                         else: self.un = ""
-                        if 'prof' in self.q: self.prof = q['prof'].value
+                        if 'prof' in self.q: self.prof = q.getvalue('prof')
                         else: self.prof = ""
-                        if 'sc' in self.q: self.sc = q['sc'].value
+                        if 'sc' in self.q: self.sc = q.getvalue('sc')
                         else: self.sc = ""
 
         def edit(self, q):
                 print('<Caption><H3>Изменение магистра</H3></Caption>')
                 print('<form> <input type=hidden name=student value={0}>'.format(self.q['student'].value))
-                print('<input type=hidden name=action value="edit">')
+                print('<input type=hidden name=action value="end_edit">')
                 print('<input type=hidden name=id value={0}>'.format(q['id'].value))
                 print('<table border="0"><tr><td>ФИО студента</td><td><input type=text name=fio value="{0}"></td><td><i>*Обязательно</i></td></tr>'.format(self.fio))
                 print('<tr><th colspan="2">Текущее образование</th><th colspan="2">Предыдущее образование</th></tr>')
