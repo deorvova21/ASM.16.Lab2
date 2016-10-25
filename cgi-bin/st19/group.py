@@ -23,8 +23,11 @@ class group:
                 if chief.name != " ":
                         self.save()   
 
-	def fi(self):
-		print("st00.group.f()<br>")
+	def save_form(self):
+                self.load()
+                self.list[int(self.q['id'].value)].save_form(self.q)
+                self.save()
+                self.show_list()
 
 	def clear_list(self):
 		self.load()
@@ -35,8 +38,6 @@ class group:
 	def edit(self):
 		self.load()
 		self.list[int(self.q['id'].value)].edit_obj(self.q)
-		self.list[int(self.q['id'].value)].save_form(self.q)
-		self.save()
 
 	def delete_obj(self):
                 self.load()

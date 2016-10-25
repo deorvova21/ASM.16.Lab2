@@ -8,6 +8,7 @@ def main(q, selfurl):
                 'add_emploee': company.add_emploee,
                 'add_chief': company.add_chief,
                 'delete_obj':company.delete_obj,
+                'save_form':company.save_form,
                 'edit':company.edit,
                 'clear_list': company.clear_list
                 }

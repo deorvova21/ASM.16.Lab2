@@ -34,7 +34,7 @@ class Emploee:
         def edit_obj(self, q):
                 print('<Caption><H3>Edit object</H3></Caption>')
                 print('<form> <input type=hidden name=student value={0}>'.format(self.q['student'].value))
-                print('<input type=hidden name=action value="edit">')
+                print('<input type=hidden name=action value="save_form">')
                 print('<input type=hidden name=id value={0}>'.format(q['id'].value))
                 print('<table border="0"><tr><td>Name</td><td><input type=text name=name value="{0}"></td><td><i>*Обязательно</i></td></tr>'.format(self.name))
                 print('<tr><td>Depertment</td><td><input type=text name=dep value="{0}"></td></tr>'.format(self.dep))

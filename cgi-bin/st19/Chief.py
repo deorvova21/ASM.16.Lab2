@@ -4,8 +4,8 @@ import cgi
 class Chief(Emploee):
         def __init__(self, q):
                 super().__init__(q)
-                self.lname = ""
-                self.stat = ""
+                self.lname = " "
+                self.stat = " "
                 
         def add(self): 
                 print('<Caption><H3>Add Chief</H3></Caption>')
