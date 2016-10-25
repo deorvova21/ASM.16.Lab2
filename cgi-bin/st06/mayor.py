@@ -5,13 +5,20 @@ class Mayor(Student):
         super().__init__()
         self.telephone = ""
     
-    def read(self):
-        Student.read(self)
-        print("Введите номер телефона:")
-        self.telephone = input()
+    def read(self, q, selfurl):
+        self.q=q
+        self.selfurl=selfurl
+        Student.read(self, self.q, self.selfurl)
+        if ('telephone' in self.q):
+            self.telephone = self.q['telephone'].value
+        else: self.telephone = ""
 
     def write(self):
         Student.write(self)
-        print("Номер телефона:", self.telephone)
+        print('<td>{0}</td>'.format(self.telephone))
+
+    def write_ch(self, q, selfurl):
+        Student.write_ch(self, q, selfurl)
+        print('<td><input type="text" name="telephone" value="{0}"></td>'.format(self.telephone))
     
     

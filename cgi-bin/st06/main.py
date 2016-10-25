@@ -1,34 +1,21 @@
 from .group import *
+import cgi
 
-Gr = Group()
+def main(q, selfurl):
+        Gr = Group(q, selfurl)
+        print ("Content-type: text/html; charset=utf-8\n\n")
+        if 'action' in q:
+                if (q['action'].value=="1"): 
+                        Gr.write()
+                if (q['action'].value=="2"): 
+                        Gr.read()
+                if (q['action'].value=="3"):
+                        Gr.add()
+                if (q['action'].value=="4"):
+                        Gr.delete()
+        else:
+                Gr.write()
 
-list = [
-["Добавить студента", Gr.read],
-["Изменить информацию о студенте", Gr.change],
-["Удалить студента ", Gr.delete],
-["Вывести на экран список группы", Gr.write],
-["Записать в файл список", Gr.write_file],
-["Считать из файла список", Gr.read_file],
-["Очистить даные в списке", Gr.clear]
-]
-
-def main():
-        try:
-                i=1
-                print("Введите номер действия")
-                for o in list:
-                        print(i, o[0])
-                        i+=1
-                print("Для возврата в предыдуще меню нажмите 0")    
-                k = int(input())
-                if (k==0): return
-                print("")
-                list[k-1][1]()
-                print("")
-                main()
-        except:
-                print("Введено некорректное значение")
-                main()
 
 
 
