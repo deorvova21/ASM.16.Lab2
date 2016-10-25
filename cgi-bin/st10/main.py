@@ -9,7 +9,8 @@ def main(q, selfurl):
                 'madd': Univer.madd,
                 'del': Univer.delete,
                 'edit': Univer.edit,
-                'clear': Univer.clear
+                'clear': Univer.clear,
+                'end_edit': Univer.end_edit
                 }
         print ("Content-type: text/html; charset=utf-8\n\n")
         if 'action' in q:
