@@ -10,7 +10,7 @@ class Radiant(Hero):
 
         def new(self):
                 print('<Caption><H3>Добавление героя Radiant</H3></Caption>')
-                print('<form> <input type=hidden name=student value={0}>'.format(self.q['student'].value))
+                print('<form> <input type=hidden name=student value={0}>'.format(self.q.getvalue('student')))
                 print('<input type=hidden name=action value="Radd">')
                 print('<input type=hidden name=frac value="Radiant">'.format(self.frac))
                 print('<table border="0"><tr><td>Имя героя</td><td><input type=text name=hname value="{0}"></td><td><i>*Обязательно</i></td></tr>'.format(self.hname))
@@ -21,7 +21,7 @@ class Radiant(Hero):
                 print('<tr><td>Сила:</td><td><input type=text name=st value="{0}"></td></tr>'.format(self.st))
                 print('<tr><td>Интеллект:</td><td><input type=text name=ii value="{0}"></td></tr></table>'.format(self.ii))
                 print('<br> <input type=submit value="Добавить"> </form>')
-                print('<a href="?student={0}">Вернуться к списку</a>'.format(self.q['student'].value))
+                print('<a href="?student={0}">Вернуться к списку</a>'.format(self.q.getvalue('student')))
 
 
         def add_to_table(self):
@@ -37,24 +37,24 @@ class Radiant(Hero):
         def save_values(self, q):
                 if 'hname' in self.q:
                         self.hname = q['hname'].value
-                        if 'ap' in self.q: self.ap = q['ap'].value
+                        if 'ap' in self.q: self.ap = q.getvalue('ap')
                         else: self.ap = ""
-                        if 'hp' in self.q: self.hp = q['hp'].value 
+                        if 'hp' in self.q: self.hp = q.getvalue('hp') 
                         else: self.hp = ""
-                        if 'ag' in self.q: self.ag  = q['ag'].value
+                        if 'ag' in self.q: self.ag  = q.getvalue('ag')
                         else: self.ag  = ""
-                        if 'st' in self.q: self.st = q['st'].value
+                        if 'st' in self.q: self.st = q.getvalue('st')
                         else: self.st = ""
-                        if 'ii' in self.q: self.ii = q['ii'].value
+                        if 'ii' in self.q: self.ii = q.getvalue('ii')
                         else: self.ii = ""
-                        if 'frac' in self.q: self.frac = q['frac'].value
+                        if 'frac' in self.q: self.frac = q.getvalue('frac')
                         else: self.frac = ""
 
         def edit(self, q):
                 print('<Caption><H3>Изменение героя фракции Dire</H3></Caption>')
-                print('<form> <input type=hidden name=student value={0}>'.format(self.q['student'].value))
-                print('<input type=hidden name=action value="edit">')
-                print('<input type=hidden name=id value={0}>'.format(q['id'].value))
+                print('<form> <input type=hidden name=student value={0}>'.format(self.q.getvalue('student')))
+                print('<input type=hidden name=action value="ee">')
+                print('<input type=hidden name=id value={0}>'.format(q.getvalue('id')))
                 print('<input type=hidden name=frac value="Radiant">'.format(self.frac))
                 print('<table border="0"><tr><td>Имя героя</td><td><input type=text name=hname value="{0}"></td><td><i>*Обязательно</i></td></tr>'.format(self.hname))
                 print('<tr><th colspan="2">Фракция: Radiant </th></tr>')
@@ -64,6 +64,6 @@ class Radiant(Hero):
                 print('<tr><td>Сила:</td><td><input type=text name=st value="{0}"></td></tr>'.format(self.st))
                 print('<tr><td>Интеллект:</td><td><input type=text name=ii value="{0}"></td></tr></table>'.format(self.ii))
                 print('<br> <input type=submit value="Сохранить изменения"> </form>')
-                print('<a href="?student={0}">Вернуться к списку</a>'.format(self.q['student'].value))
+                print('<a href="?student={0}">Вернуться к списку</a>'.format(self.q.getvalue('student')))
 
 

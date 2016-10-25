@@ -9,7 +9,8 @@ def main(q, selfurl):
                 'Radd': Hero.Radd,
                 'del': Hero.delete,
                 'edit': Hero.edit,
-                'clear': Hero.clear
+                'clear': Hero.clear,
+                'ee': Hero.ee
                 }
         print ("Content-type: text/html; charset=utf-8\n\n")
         if 'action' in q:

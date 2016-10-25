@@ -22,7 +22,7 @@ class group:
                 item.add_to_table()
                 print("""<td><a href="{0}?student={1}&action=del&id={2}">Удалить</a> /
                          <a href="{0}?student={1}&action=edit&id={2}">Редактировать</a>
-                         </td>""".format(self.selfurl, self.q['student'].value, i))
+                         </td>""".format(self.selfurl, self.q.getvalue('student'), i))
                 print("</tr>")
                 i += 1
             print("</table>")
@@ -30,7 +30,7 @@ class group:
                  <br><a href="{0}?student={1}&action=Radd">Добавить героя фракции Raiant</a>
                  <br><a href="{0}?student={1}&action=clear">Очистить список</a>
                  <br><a href="{0}">Назад</a>
-                 """.format(self.selfurl, self.q['student'].value))
+                 """.format(self.selfurl, self.q.getvalue('student')))
 
     def load(self):
         if (os.path.exists("cgi-bin/st27/Heroes.dat")):
@@ -66,16 +66,21 @@ class group:
 
     def delete(self):
         self.load()
-        self.list.pop(int(self.q['id'].value))
+        self.list.pop(int(self.q.getvalue('id')))
         self.save()
         self.show_all()
 
     def edit(self):
         self.load()
-        self.list[int(self.q['id'].value)].edit(self.q)
-        self.list[int(self.q['id'].value)].save_values(self.q)
+        self.list[int(self.q.getvalue('id'))].edit(self.q)
+        
         self.save()
-        print('<br><th>Герой изменен</th>')
+
+    def ee(self):
+        self.load()
+        self.list[int(self.q.getvalue('id'))].save_values(self.q)
+        self.save()
+        self.show_all()
 
     def clear(self):
         self.load()
