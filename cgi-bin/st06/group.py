@@ -45,25 +45,7 @@ class Group:
         if (self.q['stype'].value=="1"): self.l.append(Student())
         if (self.q['stype'].value=="2"): self.l.append(Mayor())
         self.write_file()
-        self.write()
-
-    def cd(self,i):
-        self.write()
-        if (len(self.l)==0): return
-        print("Для изменения выберите номер элемента в списке")
-        print("Для возврата в предыдуще меню нажмите 0")
-        try:
-            m = int(input())
-            if (m==0): return
-            if (i==1):    
-                self.l[m-1].read()
-                print("Изменено!")
-            if (i==2):
-                self.l.pop(m-1)
-                print("Удалено!")
-        except:
-            print("Введено некорректное значение")
-            self.cd(i)                
+        self.write()               
 
     def delete(self):
         self.read_file()
