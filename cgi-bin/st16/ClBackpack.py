@@ -6,20 +6,34 @@ class Backpack:
         self.list = []
         self.q = q
         self.selfurl = selfurl
-
+        
     def add_pokemon(self):
+        pokemon = Pokemon(self.q)
         self.read_file()
-        student = Pokemon()
-        self.list.append(student)
-        self.write_file()
-        self.redact_list()
-
+        self.list.insert(0, pokemon)
+        print('<form><input type=hidden name=student value={0}>'.format(self.q['student'].value))
+        print('<input type=hidden name=act value="addpokemon">')
+        pokemon.edit_fields()
+        pokemon.get_value_for_add(self.q)
+        print('<p><input type="submit" value="Сохранить"></form>')
+        print('<p><a href="?student={0}">Скрыть форму</a>'.format(self.q['student'].value))
+        if pokemon.name != ' ' and pokemon.poktype != ' ' and pokemon.cp != ' ' and pokemon.hp != ' ':
+            self.write_file()
+        self.show_list()
+        
     def add_attack(self):
+        attack = Attack(self.q)
         self.read_file()
-        attack = Attack()
-        self.list.append(attack)
-        self.write_file()
-        self.redact_list()
+        self.list.insert(0, attack)
+        print('<form> <input type=hidden name=student value={0}>'.format(self.q['student'].value))
+        print('<input type=hidden name=act value="addattack">')
+        attack.edit_fields()
+        attack.get_value_for_add(self.q)
+        print('<p><input type="submit" value="Сохранить"></form>')
+        print('<p><a href="?student={0}">Скрыть форму</a>'.format(self.q['student'].value))
+        if attack.name != ' ' and attack.poktype != ' ' and attack.cp != ' ' and attack.hp != ' ' and attack.attack != ' ' and attack.superattack != ' ':
+            self.write_file()
+        self.show_list()
 
     def show_list(self):
         self.read_file()
@@ -48,11 +62,9 @@ class Backpack:
         print('<input type="hidden" name="act" id="act" value="showlist" />')
         print('<a href={0}>Назад</a>'
               .format(self.selfurl))
-        print('<p><a href={0}?student={1}&act=addpokemon>Добвить покемона</a>'
-              .format(self.selfurl, self.q['student'].value))
-        print('<p><a href={0}?student={1}&act=addattack>Добавить покемона с известной силой</a>'
-              .format(self.selfurl, self.q['student'].value))
-        print('<p><a href={0}?student={1}&act=clearlist>Очистить список</a>'
+        print('''<p><a href={0}?student={1}&act=addpokemon>Добвить покемона</a>
+        <p><a href={0}?student={1}&act=addattack>Добавить покемона с известной силой</a>
+        <p><a href={0}?student={1}&act=clearlist>Очистить список</a>'''
               .format(self.selfurl, self.q['student'].value))
         print('</form>')
 
@@ -62,9 +74,9 @@ class Backpack:
         output.close()
 
     def read_file(self):
-        input = open('cgi-bin/st16/list.db', 'rb')
-        self.list = pickle.load(input)
-        input.close()
+        iinput = open('cgi-bin/st16/list.db', 'rb')
+        self.list = pickle.load(iinput)
+        iinput.close()
 
     def get(self):
         self.read_file()
@@ -78,15 +90,10 @@ class Backpack:
         print('<input type="hidden" name="student" value="{0}" />'
               .format(self.q['student'].value))
         print('<input type="hidden" name="act" value="get" />')
-        p_id = str()
-        if 'id' in self.q:
-            p_id = self.q['id'].value
-        else:
-            p_id = str(len(self.list)-1)
         print('<input type="hidden" name="id" value="{0}" />'
-              .format(p_id))
+              .format(self.q['id'].value))
         print('<table>')
-        self.list[int(p_id)].edit_fields()
+        self.list[int(self.q['id'].value)].edit_fields()
         print('</table>')
         print('<input type="submit" value="Сохранить">')
         print('</form>')
