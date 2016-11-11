@@ -36,10 +36,10 @@ import st46.main
 
 MENU = [
         ["[00] Образец", st00.main.main],
-        ["[02] Образец", st02.main.main],
+        ["[02] Архипова", st02.main.main],
         ["[04] Багаутдинов", st04.main.main],
-	["[05] Беккер", st05.main.main],
-	["[06] Беков", st06.main.main],
+	    ["[05] Беккер", st05.main.main],
+	    ["[06] Беков", st06.main.main],
         ["[07] Бурлакова", st07.main.main],
         ["[08] Гаврилова", st08.main.main],
         ["[10] Гуцев", st10.main.main],

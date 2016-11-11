@@ -29,4 +29,4 @@ class Employee(object):
         self.position = self.q['position'].value
 
     def show(self):
-        print("<br><br>Фамилия: {0} | Имя: {1} | Должность: {2}".format(self.surname,self.name,self.position))
+        print("<br>Фамилия: {0} | Имя: {1} | Должность: {2}".format(self.surname,self.name,self.position))
