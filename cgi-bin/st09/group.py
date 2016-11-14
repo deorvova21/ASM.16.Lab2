@@ -8,12 +8,6 @@ class group:
                 self.spisok = []
                 self.q=q
                 self.selfurl=selfurl
-        def add(self):
-                self.spisok.append(student(self.q))
-                self.writef()
-        def addSt(self):
-                self.spisok.append(starosta(self.q))
-                self.writef()
         def delete(self):
                 self.readf()
                 self.spisok.pop(int(self.q['iid'].value))
