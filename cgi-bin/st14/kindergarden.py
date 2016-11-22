@@ -8,6 +8,7 @@ class Kindergarden:
         self.q = q
         self.selfurl = selfurl
 
+
     def read(self):
         self.read_f()
         if ('type' in self.q):       

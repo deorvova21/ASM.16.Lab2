@@ -21,7 +21,7 @@ class Wonderkind(Children):
 
     def write_ch(self):
         Children.write_ch(self)
-        print('<br>Отличительная особенность:<br><input type="" name="display" value="{0}">'.format(self.power))
+        print('<br>Отличительная особенность:<br><input type="Отличительная особенность" name="Отличительная особенность" value="{0}">'.format(self.power))
 
 
     
