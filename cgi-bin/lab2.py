@@ -30,6 +30,7 @@ import st26.main
 import st27.main
 import st28.main
 import st29.main
+import st33.main
 import st36.main
 import st35.main
 import st28.main
@@ -70,6 +71,7 @@ MENU = [
         ["[27] Можайкин", st27.main.main],
         ["[28] Мурадян", st28.main.main],
         ["[29] Мустафин", st29.main.main],
+        ["[33] Пулин", st33.main.main],
 		["[35] Симкин", st35.main.main],
         ["[36] Тиханов", st36.main.main],
         ["[37] Трифонов", st37.main.main],
