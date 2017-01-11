@@ -1,24 +1,21 @@
-from st33.contASM import *
+from .list import *
 import cgi
 
-def main(q, selfurl): 
-    group = ASM(q, selfurl) 
-    menu_actions = {
-    #'1': group.add,
-    '2': group.edit,
-    '1': group.delete
+def main(q, selfurl):
+    _list = List(q, selfurl)
+    _list.Load()
+    MENU = {
+        'display': _list.ShowList,
+        'get': _list.Get,
+        'delete': _list.Delete,
+        'edit': _list.Edit,
+        'addpatient': _list.AddPatient,
+        'addanamnesis': _list.AddAnamnesis,
+        'clear': _list.Clear
     }
-    print(LoadTpl('main').format(selfurl, q['student'].value))
-    choice = q.getfirst("choice", None)
-    try:
-        group.readf()
-    except (FileNotFoundError):
-        group.writef()
-        group.readf()
-    if choice is not None:
-        menu_actions[choice](q, selfurl) 
-    group.show(q, selfurl)
-    print(LoadTpl('footer'))    
-    
-if __name__=="__main__":
-    main()
+    print("Content-type: text/html; charset=utf-8\n\n")
+    if 'act' in q:
+        MENU[q['act'].value]()
+    else:
+        MENU['display']()
+    _list.Save()
