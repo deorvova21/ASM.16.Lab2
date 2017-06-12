@@ -37,10 +37,10 @@ import st28.main
 import st37.main
 import st40.main
 import st41.main
+import st43.main
 import st46.main
 import st48.main
 import st30.main
-import st50.main
 
 #	добавить импорт своего модуля по шаблону 
 #	import st<номер по журналу>.main
@@ -80,9 +80,9 @@ MENU = [
         ["[37] Трифонов", st37.main.main],
         ["[40] Ягелло", st40.main.main],
         ["[41] Якупова", st41.main.main],
+        ["[43] Малыбаев", st43.main.main],
         ["[46] Левченко", st46.main.main],
-        ["[48] Патрашану", st48.main.main],
-	["[50] Великий", st50.main.main]
+        ["[48] Патрашану", st48.main.main]
 #		добавить пункт меню для вызова своей главной функции по шаблону:
 #		["[<номер по журналу>] <Фамилия>", <ссылка на функцию>],
 	]
